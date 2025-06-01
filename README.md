@@ -56,8 +56,6 @@ The dataset (`DataSet/hand_landmarks_data.csv`) contains hand landmarks and thei
 
 Each model was evaluated using multiple metrics and their confusion matrices were generated:
 
-#### Model Comparison
-![Model Comparison](models_comapre.png)
 
 #### Confusion Matrices
 
