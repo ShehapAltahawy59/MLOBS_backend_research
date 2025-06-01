@@ -9,10 +9,10 @@ This project predicts hand gestures using machine learning models trained on han
 This repository includes:
 
 * **Data Preprocessing**: Preparing the dataset for training and testing.
-* **Model Training**: Training various machine learning models like Logistic Regression, SVM, KNN, and Random Forest.
-* **Model Evaluation**: Evaluating models using metrics like accuracy and F1-score.
+* **Model Training**: Training various machine learning models including Logistic Regression, SVM, KNN, and Random Forest.
+* **Model Evaluation**: Evaluating models using metrics like accuracy, precision, recall, and F1-score.
 * **Experiment Tracking**: Using MLflow to log parameters, metrics, and models.
-* **Best Model Selection**: SVM was chosen as the best model based on its superior F1-score and accuracy.
+* **Best Model Selection**: SVM was chosen as the best model based on its superior performance metrics.
 
 ---
 
@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ## Dataset
 
-The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corresponding gesture labels. It is used for training and testing the models.
+The dataset (`DataSet/hand_landmarks_data.csv`) contains hand landmarks and their corresponding gesture labels. It is used for training and testing the models.
 
 ---
 
@@ -52,14 +52,23 @@ The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corres
 3. **K-Nearest Neighbors (KNN)**
 4. **Random Forest**
 
-### Results Summary
+### Model Performance
 
-| Model                           | Accuracy  | F1 Score  |
-| ------------------------------- | --------- | --------- |
-| Logistic Regression             | 0.849     | 0.848     |
-| SVM with GridSearchCV           | **0.986** | **0.985** |
-| KNN with GridSearchCV           | 0.979     | 0.979     |
-| Random Forest with GridSearchCV | 0.977     | 0.977     |
+Each model was evaluated using multiple metrics and their confusion matrices were generated:
+
+#### Model Comparison
+![Model Comparison](models_comapre.png)
+
+#### Confusion Matrices
+
+![Logistic Regression Confusion Matrix](confusion_matrix_LR.png)
+![SVM Confusion Matrix](confusion_matrix_SVM.png)
+![Random Forest Confusion Matrix](confusion_matrix_RF.png)
+![KNN Confusion Matrix](confusion_matrix_KNN.png)
+
+#### Results Summary
+
+![Model Comparison](models_comapre.png)
 
 **Selected Model**: SVM was chosen for its superior performance in terms of both accuracy and F1 score.
 
@@ -74,11 +83,17 @@ The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corres
    cd <repository_directory>
    ```
 
-2. Preprocess the data:
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Preprocess the data:
 
    The preprocessing is handled in the `preprocessing.py` script.
 
-3. Train the models:
+4. Train the models:
 
    Use the `train.py` script to train the models. MLflow will automatically log results.
 
@@ -86,7 +101,7 @@ The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corres
    python train.py
    ```
 
-4. Track Experiments:
+5. Track Experiments:
 
    Start the MLflow server:
 
@@ -98,12 +113,15 @@ The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corres
 
 ---
 
-## Files
+## Project Structure
 
-* `DataSet/hand_landmarks_data.csv`: Dataset for training and testing.
-* `preprocessing.py`: Preprocessing script.
-* `train.py`: Model training script.
-* `requirements.txt`: Python library dependencies.
+* `DataSet/hand_landmarks_data.csv`: Dataset for training and testing
+* `preprocessing.py`: Data preprocessing script
+* `train.py`: Model training and evaluation script
+* `app.py`: Application interface
+* `requirements.txt`: Python library dependencies
+* `confusion_matrix_*.png`: Confusion matrices for each model
+* `models_comapre.png`: Model comparison visualization
 
 ---
 
@@ -111,9 +129,9 @@ The dataset (`hand_landmarks_data.csv`) contains hand landmarks and their corres
 
 The project uses MLflow for:
 
-* Logging model parameters and metrics.
-* Saving trained models.
-* Comparing model performance.
+* Logging model parameters and metrics
+* Saving trained models
+* Comparing model performance
 
 To view experiment results:
 
@@ -123,15 +141,17 @@ To view experiment results:
    mlflow ui
    ```
 
-2. Open your browser and go to `http://localhost:5000`.
+2. Open your browser and go to `http://localhost:5000`
 
 ---
 
 ## Future Work
 
-* Add deep learning models for better accuracy.
-* Implement real-time hand gesture recognition using a webcam.
-* Integrate the system into a web or mobile application.
+* Add deep learning models for better accuracy
+* Implement real-time hand gesture recognition using a webcam
+* Integrate the system into a web or mobile application
+* Add more gesture classes to the dataset
+* Implement model interpretability techniques
 
 ---
 
